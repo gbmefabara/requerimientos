@@ -1,0 +1,4 @@
+la pagina web de fisioterapia va a tener información sobre la fisioterapia, ejercicios de rehabilitación, tipos de tratamientos, 
+comunicacion rapida y efectiva con el profesional,videos explicativos de ejercicios o incluso un chat con fisioterapeutas
+tener un diseño claro, fácil de usar, que cargue rápidamente y que sea compatible con diferentes dispositivos como computadoras y teléfonos móviles.
+utilizando tecnologías como HTML, CSS y JavaScript para el desarrollo de la página. 
