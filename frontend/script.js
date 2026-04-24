@@ -24,14 +24,36 @@ async function fetchExercises() {
 
 function setPain(level) {
     const buttons = document.querySelectorAll('.pain-scale button');
-    buttons.forEach(btn => btn.classList.remove('active'));
-    buttons[level - 1].classList.add('active');
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+        btn.classList.remove('pop');
+    });
+    
+    const clickedBtn = buttons[level - 1];
+    clickedBtn.classList.add('active');
+    clickedBtn.classList.add('pop');
+    
+    // Update Sticker
+    const sticker = document.getElementById('pain-sticker');
+    const emojis = ["😊", "🙂", "😐", "🧐", "😕", "😟", "😣", "😫", "😭", "☠️"];
+    sticker.textContent = emojis[level - 1];
+    sticker.classList.remove('animate');
+    void sticker.offsetWidth; // Trigger reflow
+    sticker.classList.add('animate');
     
     const status = document.getElementById('pain-status');
     let msg = "";
-    if (level <= 3) msg = "Nivel bajo. ¡Buen momento para realizar tus estiramientos!";
-    else if (level <= 7) msg = "Nivel moderado. Realiza los ejercicios con precaución.";
-    else msg = "Nivel elevado. Por favor, descansa y consulta si el dolor persiste.";
+    if (level <= 2) {
+        msg = "¡Qué alegría! Estás en un gran momento. Aprovecha para fortalecer tu cuerpo con energía y optimismo.";
+    } else if (level <= 4) {
+        msg = "Un pequeño obstáculo, pero nada que te detenga. Mantén la calma y respira profundamente mientras realizas tus movimientos suaves.";
+    } else if (level <= 6) {
+        msg = "Te escucho y te entiendo. Tu cuerpo hoy pide un trato más dulce; hagamos los ejercicios con mucha paciencia y amor propio.";
+    } else if (level <= 8) {
+        msg = "Sé que es difícil y agotador, pero eres increíblemente fuerte. Hoy priorizaremos el descanso activo y el cuidado suave.";
+    } else {
+        msg = "Lo siento mucho, de corazón. Tu bienestar es nuestra única prioridad ahora. Por favor, descansa totalmente y permítenos cuidarte.";
+    }
     
     status.textContent = msg;
     
@@ -88,6 +110,11 @@ document.getElementById('chat-msg').addEventListener('keypress', (e) => {
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchExercises();
+    
+    // Initial sticker
+    const sticker = document.getElementById('pain-sticker');
+    sticker.textContent = "👋";
+    
     setTimeout(() => {
         appendMessage('bot', "¡Hola! He reordenado la página según tus necesidades. Primero registremos tu nivel de dolor.");
     }, 1500);

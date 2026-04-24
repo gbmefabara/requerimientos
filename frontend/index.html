@@ -10,6 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="bg-animation">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
     <nav class="navbar">
         <div class="logo">PhysioCare</div>
         <ul>
@@ -31,6 +36,7 @@
     <section id="dolor" class="section">
         <h2>¿Cuánto dolor sientes hoy?</h2>
         <p>Selecciona tu nivel de dolor en una escala del 1 al 10.</p>
+        <div id="pain-sticker" class="pain-sticker"></div>
         <div class="pain-scale">
             <button onclick="setPain(1)">1</button>
             <button onclick="setPain(2)">2</button>
